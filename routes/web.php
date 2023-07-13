@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Adminauth\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+//admin login
+Route::get('admin/login', [AdminController::class, 'login'])->name("login");
+
+Route::middleware('auth')->prefix("admin")->group(function () {
+        Route::get('/dashboard', function () {
+           return view('dashboard::dashboard');
+        });
+        
+
+        //Logout
+    Route::get('/logout', [AdminController::class, 'logout']);
 });
