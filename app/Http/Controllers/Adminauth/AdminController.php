@@ -42,7 +42,7 @@ class AdminController extends Controller
         $update->update();
         session()->invalidate();
         session()->flash("massage", "Password Change Successfully");
-        return redirect("/login");
+        return redirect("admin/login");
     }
 
     public function logout()

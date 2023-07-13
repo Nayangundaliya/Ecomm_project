@@ -21,7 +21,11 @@ Route::middleware('auth')->prefix("admin")->group(function () {
            return view('dashboard::dashboard');
         });
         
+    //Change Password
+    Route::get('/change-password', [AdminController::class, 'changePassword']);
+    Route::post('/change-password', [AdminController::class,'updatePassword']);
 
-        //Logout
+    
+     //Logout
     Route::get('/logout', [AdminController::class, 'logout']);
 });

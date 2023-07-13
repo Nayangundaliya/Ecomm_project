@@ -91,7 +91,7 @@
                                 <ul class="nav  nav-sidebar flex-column" data-widget="treeview" role="menu"
                                     data-accordion="false">
                                     <li class="nav-item nav">
-                                        <a href="{{ url('/') }}/change-password" class="nav-link">
+                                        <a href="{{ url('/') }}/admin/change-password" class="nav-link">
                                             <i class="nav-icon fas fa-regular fa-key"></i>
                                             <p>Change Password</p>
                                         </a>

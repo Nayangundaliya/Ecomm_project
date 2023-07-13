@@ -30,7 +30,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form  action="{{url('/')}}/change-password" method="post">
+              <form  action="{{url('/')}}/admin/change-password" method="post">
                 @csrf
                
                 <div class="card-body">
