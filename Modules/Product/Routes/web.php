@@ -11,8 +11,7 @@
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/export', [DashboardController::class, 'export']);
-    Route::post('/dashboard', [DashboardController::class, 'lang']);
+Route::prefix('/admin')->group(function() {
+    Route::get('/product', 'ProductController@index');
+    Route::get('/products/create', 'ProductController@create');
 });

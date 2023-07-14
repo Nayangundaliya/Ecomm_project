@@ -47,14 +47,7 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('dashboard')
-        @yield('quotation')
-        @yield('activity')
-        @yield('changePassword')
-        @yield('style')
-        @yield('color')
-        @yield('size')
-        @yield('campaign')
+        @yield('main')
 
         <!-- /.content-wrapper --> 
        
