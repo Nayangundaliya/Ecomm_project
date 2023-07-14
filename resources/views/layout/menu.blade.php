@@ -17,7 +17,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ url('/') }}/dashboard" class="nav-link">
+                <a href="{{ url('/') }}/admin/dashboard" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                 </a>
@@ -33,9 +33,9 @@
             </li>
             <li class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ url('/') }}/activity" class="nav-link ">
+                <a href="{{ url('/') }}/admin/category" class="nav-link ">
                     <i class="nav-icon fas fa-solid fa-list"></i>
-                    <p>Activity</p>
+                    <p>Category</p>
                 </a>
             </li>
             </li>

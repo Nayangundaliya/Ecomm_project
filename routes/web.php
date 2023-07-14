@@ -17,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('admin/login', [AdminController::class, 'login'])->name("login");
 
 Route::middleware('auth')->prefix("admin")->group(function () {
-        Route::get('/dashboard', function () {
-           return view('dashboard::dashboard');
-        });
-        
+    
     //Change Password
     Route::get('/change-password', [AdminController::class, 'changePassword']);
     Route::post('/change-password', [AdminController::class,'updatePassword']);

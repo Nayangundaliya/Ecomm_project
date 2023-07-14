@@ -6,6 +6,7 @@
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{asset('adminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+
         </div>
 
         <!-- Navbar -->
@@ -13,8 +14,9 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+
+
                 </li>
             </ul>
 
@@ -29,7 +31,7 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-            
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo   -->
@@ -47,14 +49,8 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('dashboard')
-        @yield('quotation')
-        @yield('activity')
-        @yield('changePassword')
-        @yield('style')
-        @yield('color')
-        @yield('size')
-        @yield('campaign')
+        @yield('main');
+
 
         <!-- /.content-wrapper --> 
        
@@ -121,4 +117,8 @@
         <div id="sidebar-overlay"></div>
     </div>
 
-@include('layout.footer')
+    @include('layout.footer')
+
+
+
+
