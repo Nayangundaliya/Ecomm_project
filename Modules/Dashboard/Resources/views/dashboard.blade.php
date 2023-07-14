@@ -1,6 +1,7 @@
 @extends('layout.layout')
 
 @section("main")
+
    <!-- Content Wrapper. Contains page content -->
 
  

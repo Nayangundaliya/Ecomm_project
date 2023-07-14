@@ -1,6 +1,7 @@
 @extends('layout.layout')
 
-@section("changePassword")
+@section("main")
+
    <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 117px;">
     <!-- Content Header (Page header) -->
