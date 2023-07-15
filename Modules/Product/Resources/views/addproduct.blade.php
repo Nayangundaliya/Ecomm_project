@@ -17,7 +17,7 @@
             <a name="" id="" class="btn btn-primary" href="{{ url('/admin/product') }}" role="button">Back</a>
         </div>
         <div class="card-body">
-            <form action="{{url('admin/products')}}" method="POST">
+            <form action="{{url('admin/products')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -57,9 +57,9 @@
                                 {{-- @foreach($brands as $brand)
                                     <option value="{{$brand->name}}">{{$brand->name}}</option>
                                 @endforeach --}}
-                                <option value="">Mi</option>
-                                <option value="">Apple</option>
-                                <option value="">Nokia</option>
+                                <option value="Mi">Mi</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Nokia">Nokia</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -111,14 +111,15 @@
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="mb-3">
-                            <label for="">Original Price</label>
-                            <input type="file" name="original_price" class="form-control" id="" placeholder="Images">
+                            <label for="">Upload Product Images</label>
+                            <input type="file" multiple name="image" class="form-control" id="" placeholder="Images">
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>             
+                             
             </form>
         </div>
     </section>

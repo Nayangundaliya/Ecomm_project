@@ -4,6 +4,7 @@ namespace Modules\Category\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Product\Entities\Product;
 
 class Category extends Model
 {
@@ -19,6 +20,10 @@ class Category extends Model
         'meta_description',
         'status',
     ];
+
+    public function products(){
+        return $this->hasMany(Product::class,'category_id','id');
+    }
     
     protected static function newFactory()
     {

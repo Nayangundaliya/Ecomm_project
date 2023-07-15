@@ -1,17 +1,19 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('name');
@@ -19,7 +21,6 @@ return new class extends Migration
             $table->string('brand')->nullable();
             $table->mediumText('small_description')->nullable();
             $table->longText('description')->nullable();
-            $table->string("image");
 
             $table->integer('original_price');
             $table->integer('selling_price');
@@ -34,9 +35,11 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product');
     }
 };
