@@ -32,7 +32,8 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Category Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter Style">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter Name">
+
                                     <span class="text-danger">
                                         @error('name')
                                         {{ $message }}
@@ -41,7 +42,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Slug</label>
-                                    <input type="text" class="form-control" name="slug" placeholder="Enter Key Value">
+                                    <input type="text" class="form-control" name="slug" placeholder="Enter Slug">
+
                                     <span class="text-danger">
                                         @error('slug')
                                         {{ $message }}
@@ -70,7 +72,8 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Meta Tital</label>
                                     <input type="text" class="form-control" name="meta_title"
-                                        placeholder="Enter Key Value">
+                                        placeholder="Enter Meta Title">
+
                                     <span class="text-danger">
                                         @error('meta_title')
                                         {{ $message }}
@@ -80,7 +83,9 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Meta Keyword</label>
                                     <input type="text" class="form-control" name="meta_keyword"
-                                        placeholder="Enter Key Value">
+                                        placeholder="Enter Meta Keyword">
+
+
                                     <span class="text-danger">
                                         @error('meta_keyword')
                                         {{ $message }}

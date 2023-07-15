@@ -65,6 +65,21 @@
                                         class="fa fa-trash" aria-hidden="true"></i>&nbsp&nbsp Trash Record</a> --}}
                             </div>
                         </div>
+                    <div class="card-header">
+                        <form action="" method="GET" role="search">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control  mr-2" name="search" placeholder="Search option"> <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-search">Search</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
 
                         <!-- /.card-header -->
                         <div class="card-body">

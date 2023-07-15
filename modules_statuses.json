@@ -2,5 +2,6 @@
     "Test": true,
     "Dashboard": true,
     "Product": true,
-    "Category": true
+    "Category": true,
+    "Brand": true
 }

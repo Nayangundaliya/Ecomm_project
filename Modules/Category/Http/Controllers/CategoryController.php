@@ -13,8 +13,11 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {  if($request->search){
+       $category =Category::where("name" , 'LIKE', '%'.$request->search.'%')->get();
+        return view('category::index',["category" => $category]);
+    }
         $category =Category::all();
 
         return view('category::index',["category" => $category]);
@@ -61,7 +64,7 @@ class CategoryController extends Controller
         $category->meta_title=$request->meta_title;
         $category->meta_keyword=$request->meta_keyword;
         $category->meta_description=$request->meta_description;
-        $category->status= $request->status == "Active" ? "1" : "0" ;
+        $category->status= $request->status == "Active" ? "0" : "1" ;
 
          $category->save();
 
@@ -77,7 +80,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('category::show');
+       // return view('category::show');
     }
 
     /**
