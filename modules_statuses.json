@@ -1,6 +1,7 @@
 {
     "Test": true,
     "Dashboard": true,
+    "Product": true,
     "Category": true,
     "Brand": true
 }

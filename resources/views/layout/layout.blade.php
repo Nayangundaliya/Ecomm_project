@@ -49,8 +49,7 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('main');
-
+        @yield('main')
 
         <!-- /.content-wrapper --> 
        

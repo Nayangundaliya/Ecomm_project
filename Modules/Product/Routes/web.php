@@ -1,5 +1,5 @@
 <?php
-use Modules\Dashboard\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +11,8 @@ use Modules\Dashboard\Http\Controllers\DashboardController;
 |
 */
 
-Route::middleware('auth')->prefix("admin")->group(function() {
-    Route::get('/dashboard', [DashboardController::class,'index']);
-    Route::get('/export', [DashboardController::class, 'export']);
-    Route::post('/dashboard', [DashboardController::class, 'lang']);
-
+Route::prefix('/admin')->group(function() {
+    Route::get('/products', 'ProductController@index');
+    Route::get('/products/create', 'ProductController@create');
+    Route::post('/products', 'ProductController@store');
 });
