@@ -26,6 +26,7 @@
             <div class="row">
                 <div class="col-12 ">
                     <div class="card">
+                            
                         @if (session()->has('massage'))
                         <div class="alert alert-success alert-dismissible " role="alert">
                             <h5>{{ session()->get('massage') }}</h5>

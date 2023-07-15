@@ -26,7 +26,7 @@
             </li>
             <li class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ url('/admin/product') }}" class="nav-link ">
+                <a href="{{ url('/admin/products') }}" class="nav-link ">
                     <i class="nav-icon fas fa-edit"></i>
                     <p>Product</p>
                 </a>

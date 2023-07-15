@@ -5,6 +5,7 @@ namespace Modules\Product\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -23,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product::addproduct');
+        $categories = Category::all();
+        return view('product::addproduct', compact('categories'));
     }
 
     /**
@@ -33,7 +35,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
