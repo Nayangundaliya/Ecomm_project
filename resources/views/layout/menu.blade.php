@@ -41,9 +41,11 @@
             </li>
             <li class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ url('/') }}/style" class="nav-link ">
+                <a href="{{ url('/admin/brand') }}" class="nav-link ">
+
                     <i class="nav-icon fas fa-solid fa-snowflake"></i>
-                    <p>Style</p>
+                    <p>Brand</p>
+
                 </a>
             </li>
             </li>
