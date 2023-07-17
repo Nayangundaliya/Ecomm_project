@@ -44,13 +44,22 @@
                         </div>
                         <div class="card-header">
                             <form action="" method="GET" role="search">
-                                <div class="col-sm-6">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control  mr-2" name="search" placeholder="Search option"> <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-primary">
-                                                <span class="glyphicon glyphicon-search">Search</span>
-                                            </button>
-                                        </span>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control  mr-2" name="search" placeholder="Search option"> <span
+                                                class="input-group-btn">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="glyphicon glyphicon-search"><i class="fa fa-solid fa-magnifying-glass"></i></span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="d-flex flex-row-reverse ">
+                                            <a name="" id="" class="btn btn-primary" href="{{ url('/admin/products') }}" role="button">Back</a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -83,13 +92,7 @@
                                         <tr>
                                             <td scope="row">{{ $no++ }}</td>
                                             <td>{{ $product->name }}</td>
-                                            <td> 
-                                                @foreach ($product->categories as $categori)
-                                                        <ul>
-                                                            <li  class="list">{{ $categori->name}}</li>
-                                                        </ul>
-                                                    @endforeach 
-                                            </td>
+                                            <td>{{ $product->category->name }}</td>
                                             <td>{{ $product->brand }}</td>
                                             <td>{{ $product->small_description }}</td>
                                             <td>{{ $product->description }}</td>

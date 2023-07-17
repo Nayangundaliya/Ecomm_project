@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+// use Modules\Product\Http\Controllers\Api\V1\ProductApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/product', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/api/v1', function (Request $request) {
+//     return $request->user();
+// });
+//17-07-23 1. Laravel product update, delete, 
+        // 2. Product Api create, 
+        // 3. Create Ecommerce React app, and show Api product data 
+
+
+Route::prefix('/v1')->group(function () {
+    Route::get('/product', 'Api\V1\ProductApiController@index');
+    Route::get('/product/{id?}', 'Api\V1\ProductApiController@images');
+
 });
