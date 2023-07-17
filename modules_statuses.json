@@ -3,5 +3,7 @@
     "Dashboard": true,
     "Product": true,
     "Category": true,
-    "Brand": true
+    "Brand": true,
+    "Customer": true,
+    "Order": true
 }
