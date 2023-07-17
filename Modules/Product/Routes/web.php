@@ -15,4 +15,7 @@ Route::prefix('/admin')->group(function() {
     Route::get('/products', 'ProductController@index');
     Route::get('/products/create', 'ProductController@create');
     Route::post('/products', 'ProductController@store');
+    Route::get('/products/edit/{id}', 'ProductController@edit');
+    Route::post('/products/update/{id}', 'ProductController@update');
+    Route::get('/products/destory/{id}', 'ProductController@destroy');
 });

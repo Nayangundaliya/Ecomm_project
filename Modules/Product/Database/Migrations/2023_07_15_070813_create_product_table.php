@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('brand')->nullable();
+            $table->string('image');
             $table->mediumText('small_description')->nullable();
             $table->longText('description')->nullable();
 
