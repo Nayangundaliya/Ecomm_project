@@ -14,7 +14,7 @@
     </div>
     <section class="content">
         <div class="d-flex flex-row-reverse ">
-            <a name="" id="" class="btn btn-primary" href="{{ url('/admin/product') }}" role="button">Back</a>
+            <a name="" id="" class="btn btn-primary" href="{{ url('/admin/products') }}" role="button">Back</a>
         </div>
         <div class="card-body">
             <form action="{{url('admin/products')}}" method="POST" enctype="multipart/form-data">
@@ -54,13 +54,14 @@
                         <div class="mb-3">
                             <label for="Select" class="form-label">Select Brand</label>
                             <select name="brand" id="Select" class="form-select">
-                                {{-- @foreach($brands as $brand)
+                                @foreach($brands as $brand)
                                     <option value="{{$brand->name}}">{{$brand->name}}</option>
-                                @endforeach --}}
-                                <option value="Mi">Mi</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Nokia">Nokia</option>
+                                @endforeach
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Upload Product Images</label>
+                            <input type="file" multiple name="image" class="form-control" id="" placeholder="Images">
                         </div>
                         <div class="mb-3">
                             <div class="form-floating">
@@ -110,10 +111,10 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="mb-3">
-                            <label for="">Upload Product Images</label>
+                        {{-- <div class="mb-3">
+                            <label for="">Upload multiple Images</label>
                             <input type="file" multiple name="image" class="form-control" id="" placeholder="Images">
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
