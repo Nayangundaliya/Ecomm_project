@@ -111,10 +111,10 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                             <label for="">Upload multiple Images</label>
-                            <input type="file" multiple name="image" class="form-control" id="" placeholder="Images">
-                        </div> --}}
+                            <input type="file" multiple name="images[]" class="form-control" id="" placeholder="Images">
+                        </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

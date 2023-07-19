@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Category\Entities\Category;
 use Modules\Product\Entities\Product;
 use Modules\Brand\Entities\Brand;
+use Modules\Product\Entities\ProductImage;
 
 class ProductController extends Controller
 {
@@ -18,14 +19,14 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if($request->search){
-            $products =Product::where("name" , 'LIKE', '%'.$request->search.'%')->get();
+            $products =Product::where("name", 'LIKE', '%'.$request->search.'%')->get();
             return view('product::index', compact('products'));
+            // $products = Product::where("brand", 'LIKE', '%' . $request->search . '%')->get();
+            // return view('product::index', compact('products'));
          }
 
         // $categories = Category::all();
         $products = Product::paginate(7);
-        return view('product::index', compact('products'));
-        $products = Category::with('products');
         return view('product::index', compact('products'));
     }
 
@@ -47,19 +48,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
+        
         $request->validate([
             'category_id' => 'required',
             "name" => 'required',
             "slug" => 'required',
             "brand" => 'required',
-            "image" => 'required|mimes:png,jpg|max:1024',
+            // "image" => 'required|mimes:png,jpg|max:1024',
             "small_description" => 'required',
             "description" => 'required',
             "original_price" => 'required',
             "selling_price" => 'required',
             "quantity" => 'required',
         ]);
-        // return $request->all();
         $data = new Product;
         $data->category_id = $request->category_id;
         $data->name = $request->name;
@@ -81,6 +83,20 @@ class ProductController extends Controller
         $data->trending = $request->trending == true ? '1':'0';
         $data->status = $request->status == true ? '1' : '0';
         $data->save();
+        // echo $data->id;   
+
+        if ($request->hasFile('images')) {
+
+            foreach($request->file('images') as $imageFile){
+                $image = new ProductImage;
+                $image->product_id = $data->id;
+                $extension = $imageFile->getClientOriginalExtension();
+                $filename = time().'.'. $extension;
+                $imageFile->move('uploads/product/', $filename);
+                $image->images = $filename;
+                $image->save();
+            }
+        }
 
         session()->flash("massage", "Successfully Add Product");
         return redirect('/admin/products');
@@ -122,7 +138,7 @@ class ProductController extends Controller
             "name" => 'required',
             "slug" => 'required',
             // "brand" => 'required',
-            "image" => 'required|mimes:png,jpg|max:1024',
+            // "image" => 'required|mimes:png,jpg|max:1024',
             // "small_description" => 'required',
             // "description" => 'required',
             "original_price" => 'required',

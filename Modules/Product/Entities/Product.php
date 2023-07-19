@@ -4,6 +4,8 @@ namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Category\Entities\Category;
+use Modules\Product\Entities\ProductImage;
 
 class Product extends Model
 {
@@ -23,8 +25,18 @@ class Product extends Model
         'trending',
         'status',
     ];
+    // protected $with = ['category'];
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 
-    public function productImages(){
+    protected $with = ['images'];
+    public function images()
+    {
+        return $this->belongsTo(productImage::class, 'product_id', 'id');
+    }
+
+    public function productImage(){
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
     
