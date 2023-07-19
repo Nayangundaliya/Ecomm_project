@@ -77,7 +77,15 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
+                        <div class="row ">
+                            <div class="col-md-6 mb-3">
+                                <label for=""> Replacement Days (EX - 7)</label>
+                                <input type="text" name="replacement_days" class="form-control" id="" placeholder="Replacement Days">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for=""> Warranty Year (EX - 2)</label>
+                                <input type="text" name="warranty_year" class="form-control" id="" placeholder="Warranty Year">
+                            </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="">Original Price</label>

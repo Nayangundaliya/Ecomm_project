@@ -23,6 +23,8 @@ return new class extends Migration
             $table->mediumText('small_description')->nullable();
             $table->longText('description')->nullable();
 
+            $table->integer('replacement_days');
+            $table->integer('warranty_year');
             $table->integer('original_price');
             $table->integer('selling_price');
             $table->integer('quantity');

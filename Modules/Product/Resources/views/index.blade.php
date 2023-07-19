@@ -67,7 +67,7 @@
     
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table container table-hover text-center">
+                            <table class="table table-hover text-center">
                                 <thead>
                                     <tr>
                                         <th>Srno</th>
@@ -76,6 +76,8 @@
                                         <th>Brand Name</th>
                                         <th>Small Description</th>
                                         <th>Description</th>
+                                        <th>Replacement Days</th>
+                                        <th>Warranty Year</th>
                                         <th>Original Price</th>
                                         <th>Selling Price</th>
                                         <th>Image</th>
@@ -96,6 +98,8 @@
                                             <td>{{ $product->brand }}</td>
                                             <td>{{ $product->small_description }}</td>
                                             <td>{{ $product->description }}</td>
+                                            <td>{{ $product->replacement_days }}</td>
+                                            <td>{{ $product->warranty_year }}</td>
                                             <td>{{ $product->original_price }}</td>
                                             <td>{{ $product->selling_price }}</td>
                                             <td>

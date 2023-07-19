@@ -25,9 +25,9 @@ class ProductApiController extends Controller
         // ]);
     }
 
-    public function images($id)
+    public function productimages(Request $request)
     {
-        $product = Product::all();
+        $product = Product::with('images')->find($request->id);
         return $product;
     }
 

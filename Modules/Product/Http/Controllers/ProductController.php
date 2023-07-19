@@ -58,6 +58,8 @@ class ProductController extends Controller
             // "image" => 'required|mimes:png,jpg|max:1024',
             "small_description" => 'required',
             "description" => 'required',
+            "replacement_days" => "required",
+            "warranty_year" => "required",
             "original_price" => 'required',
             "selling_price" => 'required',
             "quantity" => 'required',
@@ -77,6 +79,8 @@ class ProductController extends Controller
           }
         $data->small_description = $request->small_description;
         $data->description = $request->description;
+        $data->replacement_days = $request->replacement_days;
+        $data->warranty_year = $request->warranty_year;
         $data->original_price = $request->original_price;
         $data->selling_price = $request->selling_price;
         $data->quantity = $request->quantity;
@@ -91,9 +95,9 @@ class ProductController extends Controller
                 $image = new ProductImage;
                 $image->product_id = $data->id;
                 $extension = $imageFile->getClientOriginalExtension();
-                $filename = time().'.'. $extension;
-                $imageFile->move('uploads/product/', $filename);
-                $image->images = $filename;
+                $name = $imageFile->getClientOriginalName();
+                $imageFile->move('uploads/product/', $name);
+                $image->images = $name;
                 $image->save();
             }
         }
@@ -137,10 +141,12 @@ class ProductController extends Controller
             'category_id' => 'required',
             "name" => 'required',
             "slug" => 'required',
-            // "brand" => 'required',
+            "brand" => 'required',
             // "image" => 'required|mimes:png,jpg|max:1024',
             // "small_description" => 'required',
             // "description" => 'required',
+            "replacement_days" => 'required',
+            "warranty_year" => 'required',
             "original_price" => 'required',
             "selling_price" => 'required',
             "quantity" => 'required',
@@ -161,6 +167,8 @@ class ProductController extends Controller
           }
         $data->small_description = $request->small_description;
         $data->description = $request->description;
+        $data->replacement_days = $request->replacement_days;
+        $data->warranty_year = $request->warranty_year;
         $data->original_price = $request->original_price;
         $data->selling_price = $request->selling_price;
         $data->quantity = $request->quantity;

@@ -122,6 +122,26 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Original Price</label>
+                                            <input type="text" class="form-control" name="replacement_days" value="{{ $products->replacement_days}}"
+                                                placeholder="Enter Style">
+                                            <span class="text-danger">
+                                                @error('replacement_days')
+                                                {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Original Price</label>
+                                            <input type="text" class="form-control" name="warranty_year" value="{{ $products->warranty_year}}"
+                                                placeholder="Enter Style">
+                                            <span class="text-danger">
+                                                @error('warranty_year')
+                                                {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Original Price</label>
                                             <input type="text" class="form-control" name="original_price" value="{{ $products->original_price}}"
                                                 placeholder="Enter Style">
                                             <span class="text-danger">

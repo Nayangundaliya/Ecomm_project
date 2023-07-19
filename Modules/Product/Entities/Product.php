@@ -5,7 +5,7 @@ namespace Modules\Product\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Category\Entities\Category;
-use Modules\Product\Entities\ProductImage;
+use Modules\Product\Entities\Product_Image;
 
 class Product extends Model
 {
@@ -20,6 +20,8 @@ class Product extends Model
         'small_description',
         'description',
         'original_price',
+        'replacement_days',
+        'warranty_year',
         'selling_price',
         'quantity',
         'trending',
@@ -30,14 +32,19 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    protected $with = ['images'];
+    // protected $with = ['images'];
     public function images()
     {
-        return $this->belongsTo(productImage::class, 'product_id', 'id');
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 
     public function productImage(){
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->belongsToMany(Order::class, "order_products")->withTimestamps();
     }
     
     protected static function newFactory()
