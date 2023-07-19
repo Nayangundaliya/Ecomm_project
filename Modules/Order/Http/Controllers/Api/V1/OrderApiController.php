@@ -1,27 +1,20 @@
 <?php
 
-namespace Modules\Order\Http\Controllers;
+namespace Modules\Order\Http\Controllers\Api\V1;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\order\Entities\Order;
 
-class OrderController extends Controller
+class OrderApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
-          if($request->search){
-       $order =Order::where("first_name" , 'LIKE', '%'.$request->search.'%')->get();
-        return view('order::index',["order" => $order]);
-        }
-        $order =Order::all();
-
-        return view('order::index',["order" => $order]);
+        return view('order::index');
     }
 
     /**

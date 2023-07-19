@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\API\V1\Auth;
+namespace Modules\Customer\Http\Controllers\Api\V1\Auth;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -15,10 +15,10 @@ class CustomerAuthController extends Controller
     public function register(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'first_name'=>'required',
-            "last_name"=>'required',
+            'first_name'=>'required|string|min:3',
+            "last_name"=>'required|string|min:2',
             "country"=>'required',
-            "phone_no"=>'required',
+            "phone_no"=>'required|numeric',
             'email'=>'required|email',
             'password'=>'required|confirmed',
         ]);

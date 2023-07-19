@@ -5,6 +5,7 @@ namespace Modules\Customer\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Customer\Entities\Customer;
 
 class CustomerController extends Controller
 {
@@ -12,9 +13,15 @@ class CustomerController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('customer::index');
+          if($request->search){
+       $customer =Customer::where("first_name" , 'LIKE', '%'.$request->search.'%')->get();
+        return view('customer::index',["customer" => $customer]);
+        }
+        $customer =Customer::all();
+
+        return view('customer::index',["customer" => $customer]);
     }
 
     /**
@@ -53,7 +60,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        return view('customer::edit');
+          $customer = Customer::find($id);
+       
+        return view('customer::edit',["customer" => $customer]);
     }
 
     /**
@@ -64,7 +73,25 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+                   $request->validate([
+            'first_name'=>'required',
+            "last_name"=>'required',
+            "country"=>'required',
+            "phone_no"=>'required',
+        ]);
+        $customer =Customer::find($id);
+        $customer->first_name=$request->first_name;
+        $customer->last_name=$request->last_name;
+        $customer->country=$request->country; 
+        $customer->city=$request->city;  
+        $customer->phone_no=$request->phone_no;
+
+        $customer->status= $request->status == "Active" ? "0" : "1" ;
+
+        $customer->save();
+
+        session()->flash("massage", "Successfully Edit Customer");
+            return redirect("/admin/customer");
     }
 
     /**
@@ -74,6 +101,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $delete = Customer::findOrFail($id);
+        $delete->delete();
+        session()->flash("massage", "Successfully Delete Customer");
+        return redirect("/admin/customer");
     }
 }

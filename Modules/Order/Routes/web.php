@@ -1,5 +1,5 @@
 <?php
-
+use Modules\Order\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,14 @@
 |
 */
 
-Route::prefix('order')->group(function() {
-    Route::get('/', 'OrderController@index');
+Route::middleware('auth')->prefix("admin")->group(function() {
+     
+    Route::get('/order', [OrderController::class,'index']);
+  //  Route::get('/order/create', [OrderController::class,'create']);
+   // Route::post('/order/store', [OrderController::class, 'store']);
+    // Route::get('/order/edit/{id}', [OrderController::class, 'edit']);
+    // Route::post('/order/update/{id}', [OrderController::class, 'update']);
+    //  Route::get("/order/status/{status}/{id}", [OrderController::class, 'changstatus']);
+    Route::get('/order/destory/{id}', [OrderController::class, 'destroy']);
+
 });
