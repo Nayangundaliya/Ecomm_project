@@ -15,17 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("customer_id");
-            $table->foreign("customer_id")->references("id")->on("customers");
+            $table->unsignedBigInteger("customer_id")->nullable();
             $table->string("dilevary_address_city");
             $table->string("dilevary_address_state");
-            $table->string("dilivary_address");
+            $table->mediumText("dilivary_address");
             $table->string("pincode");
-            $table->string("total_prise");
-            $table->string("total_quantaty");
-            $table->string("payment_methord");
+            $table->decimal("total_prise", 10, 2);
+            $table->bigInteger("total_quantaty");
+            $table->string("payment_mode");
             $table->tinyInteger("order_status")->default("0")->comment("0=pending,1=completed,2=canceled");
             $table->tinyInteger("payment_status")->default("0")->comment("0=pending,1=completed");
+
+            $table->foreign("customer_id")->references("id")->on("customers")->onDelete("cascade");
             $table->timestamps();
         });
     }

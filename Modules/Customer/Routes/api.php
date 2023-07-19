@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Modules\Customer\Http\Controllers\API\V1\Auth\CustomerAuthController;
+use Modules\Customer\Http\Controllers\Api\V1\Auth\CustomerAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,16 @@ use Modules\Customer\Http\Controllers\API\V1\Auth\CustomerAuthController;
 
 // Route::middleware('auth:api')->get('/register', [CustomerAuthController::class, 'register']);
 
-Route::post('/register', [CustomerAuthController::class, 'register']);
-Route::post('/login', [CustomerAuthController::class, 'login']);
+Route::prefix('v1')->group(function () {
 
-Route::middleware(['auth:sanctum'])->group(function(){
+        Route::post('/register', [CustomerAuthController::class, 'register']);
+        Route::post('/login', [CustomerAuthController::class, 'login']);
+
+});
+
+
+Route::middleware(['auth:sanctum'])->prefix('v1')->group(function(){
+
     Route::post('/logout', [CustomerAuthController::class, 'logout']);
+    
 });

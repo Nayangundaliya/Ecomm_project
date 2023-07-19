@@ -7,6 +7,9 @@
         </div>
         <div class="info">
             <a href="#" class="d-block">Alexander Pierce</a>
+
+
+
         </div>
     </div>
 
@@ -50,15 +53,19 @@
                 </a>
             </li>
             </li>
-            <li class="nav nav-treeview">
+            {{-- <li class="nav nav-treeview">
+
+
             <li class="nav-item">
                 <a href="{{ url('/') }}/color" class="nav-link ">
                     <i class="nav-icon fas fa-solid fa-palette"></i>
                     <p>Color</p>
                 </a>
             </li>
-            </li>
-            <li class="nav nav-treeview">
+            </li> --}}
+            {{-- <li class="nav nav-treeview">
+
+
             <li class="nav-item">
                 <a href="{{ url('/') }}/size" class="nav-link ">
 
@@ -70,17 +77,39 @@
 
                     <p>Size</p>
                 </a>
-            </li>
-            </li>
+                </li>
 
-            <li class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="{{ url('/') }}/campaign" class="nav-link ">
-                    <i class="nav-icon fa fa-eject" aria-hidden="true"></i>
-                    <p>Campaign</p>
-                </a>
-            </li>
-            </li>
+                </li> --}}
+
+                <li class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ url('/admin/customer') }}" class="nav-link ">
+
+                        <i class="nav-icon fa fa-user" aria-hidden="true"></i>
+                        <p>Customer</p>
+
+
+                    </a>
+
+                </li>
+
+                </li>
+
+
+
+                <li class="nav nav-treeview">
+                <li class="nav-item">
+
+<a href="{{ url('/admin/order') }}" class="nav-link ">
+    <i class="nav-icon fab fa-first-order" aria-hidden="true"></i>
+    <p>Order</p>
+</a>
+</li>
+</li>
+
+
+
+
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

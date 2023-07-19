@@ -1,5 +1,5 @@
 <?php
-
+use Modules\Customer\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,14 @@
 |
 */
 
-// Route::prefix('customer')->group(function() {
-//     Route::get('/', 'CustomerController@index');
-// });
+Route::middleware('auth')->prefix("admin")->group(function() {
+     
+    Route::get('/customer', [CustomerController::class,'index']);
+  //  Route::get('/customer/create', [CustomerController::class,'create']);
+   // Route::post('/customer/store', [CustomerController::class, 'store']);
+    // Route::get('/customer/edit/{id}', [CustomerController::class, 'edit']);
+    // Route::post('/customer/update/{id}', [CustomerController::class, 'update']);
+    //  Route::get("/customer/status/{status}/{id}", [CustomerController::class, 'changstatus']);
+    Route::get('/customer/destory/{id}', [CustomerController::class, 'destroy']);
+
+});

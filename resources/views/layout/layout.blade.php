@@ -38,7 +38,9 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('adminLTE/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Hill View Mini Barns</span>
+                <span class="brand-text font-weight-light">Ecommerce Admin</span>
+
+
             </a>
 
             <!-- Sidebar -->
@@ -55,7 +57,9 @@
        
 
         <footer class="main-footer">
-            <strong>Copyright © 2014-2021 <a href="https://adminlte.io">Hill View Mini Barns</a>.</strong>
+            <strong>Copyright © 2023-2024 <a href="https://adminlte.io">Ecommerce Admin</a>.</strong>
+
+
             All rights reserved.
         </footer>
 
