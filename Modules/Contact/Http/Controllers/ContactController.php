@@ -1,16 +1,12 @@
 <?php
 
-namespace Modules\Dashboard\Http\Controllers;
+namespace Modules\Contact\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Product\Entities\Product;
-use Modules\Customer\Entities\Customer;
-use Modules\Order\Entities\Order;
 
-
-class DashboardController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-        $totalproduct = Product::count();
-        $totaluser = Customer::count();
-        $totalorder = Order::count();
-
-        return view('dashboard::dashboard', compact('totalproduct', 'totaluser', 'totalorder'));
+        return view('contact::index');
     }
 
     /**
@@ -32,7 +23,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('dashboard::create');
+        return view('contact::create');
     }
 
     /**
@@ -52,7 +43,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard::show');
+        return view('contact::show');
     }
 
     /**
@@ -62,7 +53,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard::edit');
+        return view('contact::edit');
     }
 
     /**

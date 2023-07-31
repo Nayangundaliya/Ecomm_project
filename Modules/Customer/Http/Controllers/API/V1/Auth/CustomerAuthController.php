@@ -49,8 +49,11 @@ class CustomerAuthController extends Controller
          $token = $customer->createToken($request->email)->plainTextToken;
         return response([
              'token'=>$token,
+            'first_name' => $customer->first_name,
+            'id' => $customer->id,
+            "email" => $customer->email,
             'message' => 'Registration Success',
-            'status'=>'success'
+            'status'=>200
         ], 201);
     }
 
@@ -74,16 +77,25 @@ class CustomerAuthController extends Controller
             $token = $customer->createToken($request->email)->plainTextToken;
             return response([
                 'token'=>$token,
+                'first_name' => $customer->first_name,
+                'id' => $customer->id,
+                "email" => $customer->email,
                 'message' => 'Login Success',
-                'status'=>'success'
+                'status'=> 200
             ], 200);
+        }else{
+            return response([
+                'status' => 401,
+                'message' => 'The Provided Credentials are incorrect',
+            ], 401);
         }
-        return response([
-            'message' => 'The Provided Credentials are incorrect',
-            'status'=>'failed'
-        ], 401);
+        // return response([
+        //     'message' => 'The Provided Credentials are incorrect',
+        //     'status'=> 401
+        //
+        // ], 401);
     }
-
+//
     public function logout(Request $request){
 
          $tokenId = \Str::before(request()->bearerToken(), '|');
@@ -91,8 +103,8 @@ class CustomerAuthController extends Controller
          DB::table('personal_access_tokens')->where('id',  $tokenId)->delete();
        // $customer->tokens()->where('id', $tokenId)->delete();
         return response([
-            'message' =>  "logout",
-            'status'=>'success'
+            'message' =>  "Logout Successfully",
+            'status'=> 200
         ], 200);
         
     }

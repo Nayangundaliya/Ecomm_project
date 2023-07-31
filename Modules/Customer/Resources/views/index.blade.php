@@ -81,11 +81,13 @@
 
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table container table-hover text-center">
+                        <table class="table table-hover text-center">
                             <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Customer Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Status</th>
                                     <th colspan="1" class="text-center">Action</th>
                                 </tr>
@@ -95,6 +97,8 @@
                                 <tr>
                                     <td scope="row">{{ $data->id }}</td>
                                     <td>{{ $data->first_name }}</td>
+                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->phone_no }}</td>
                                     {{-- @if ($data->status==1)
 
                                     <td>
@@ -114,10 +118,8 @@
 
                                     <td>{{ $data->status == "1" ? "Inactive" : "Active"}}</td>
                                     <td>
-                                        <div class="d-flex justify-content-around">
-                                            {{-- <a id="" class="btn btn-primary" href="{{ url('/admin/customer/edit') }}/{{ $data->id }}" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a> --}}
-                                            <a id="" class="btn btn-danger" href="{{ url('/admin/customer/destory') }}/{{ $data->id }}" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                        </div>
+                                        <button class="btn"><a href="{{ url('/admin/customer/destory') }}/{{ $data->id }}" class="text-danger"><i
+                                                    class=" fa fa-duotone fa-trash"></i></a></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -128,7 +130,7 @@
                         {{-- <div class="d-flex  justify-content-around mt-5">
                                 {{ $styles->links() }}
                         {{ $styles->count() }} out of {{ $styles->total() }}
-                    </div> --}}
+                    </div>--}}
 
 
                 </div>

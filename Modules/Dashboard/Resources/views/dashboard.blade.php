@@ -7,7 +7,7 @@
  
   <div class="content-wrapper" style="min-height: 117px;">
     
-     <nav class="navbar">
+     {{-- <nav class="navbar">
       <div class="container-fluid d-flex justify-content-start">
           <a name="" id="" class="btn btn-primary" href="{{url("/")}}/export" role="button"></a>
       </div>
@@ -23,13 +23,13 @@
                 <button class="btn bg-primary  text-white" name="submit" type="submit">Click</button>
             </form>
         </div>
-    </nav>
+    </nav> --}}
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"></h1>
+            <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -37,66 +37,68 @@
      <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-     
-        
-       
         <!-- Main row -->
         <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-8 connectedSortable ui-sortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header ui-sortable-handle" style="cursor: move;">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-               
-                  
-                </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab"></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab"></a>
-                    </li>
-                  </ul>
-                </div>
-              </div><!-- /.card-header -->
-              
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ $totalorder }}</h3>
+        
+                <p>New Orders</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="{{ url('admin/order') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-            <!-- /.card -->
-
-           
-         
-            
-          </section>
-          <!-- right col -->
-          <section class="col-lg-4 connectedSortable ui-sortable">
-            
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ $totalproduct }}<sup style="font-size: 20px"></sup></h3>
+        
+                <p>Total Product</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href='{{ url('admin/products') }}' class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3></h3>
-
-                <p></p>
+                <h3>{{ $totaluser }}</h3>
+        
+                <p>User Registrations</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
+              <a href="{{ url('admin/customer') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-            <div class="small-box bg-success">
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
               <div class="inner">
-                <h3></h3>
-
-                <p></p>
+                <h3>65</h3>
+        
+                <p>Unique Visitors</p>
               </div>
               <div class="icon">
-                <i class="fas fa-regular fa-heart"></i>
+                <i class="ion ion-pie-graph"></i>
               </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        
-          </section> 
+          </div>
+          <!-- ./col -->
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->

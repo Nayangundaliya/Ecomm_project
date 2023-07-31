@@ -18,4 +18,6 @@ Route::prefix('/admin')->group(function() {
     Route::get('/products/edit/{id}', 'ProductController@edit');
     Route::post('/products/update/{id}', 'ProductController@update');
     Route::get('/products/destory/{id}', 'ProductController@destroy');
+    Route::get('/products/pdf', 'ProductController@exportpdf');
+    Route::get('/products/csv', 'ProductController@exportcsv');
 });
