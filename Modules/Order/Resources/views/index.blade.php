@@ -85,7 +85,8 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Order Name</th>
+                                    <th>Customer Name</th>
+
                                     <th>Status</th>
                                     <th colspan="1" class="text-center">Action</th>
                                 </tr>

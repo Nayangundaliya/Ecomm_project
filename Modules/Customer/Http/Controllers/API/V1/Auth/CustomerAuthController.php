@@ -9,6 +9,7 @@ use Modules\Customer\Entities\Customer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 
 class CustomerAuthController extends Controller
 {
@@ -26,14 +27,14 @@ class CustomerAuthController extends Controller
         if ($validator->fails()) {
              return response([
                         'message' => $validator->messages(),
-                        'status'=>'Failed'
+                        'status_code'=> Response::HTTP_UNAUTHORIZED,
                     ], 401);
         }  
 
         if(Customer::where('email', $request->email)->first()){
             return response([
                 'message' => 'Email already exists',
-                'status'=>'failed'
+                'status_code'=> Response::HTTP_OK,
             ], 200);
         }
 
@@ -50,7 +51,7 @@ class CustomerAuthController extends Controller
         return response([
              'token'=>$token,
             'message' => 'Registration Success',
-            'status'=>'success'
+            'status_code'=> Response::HTTP_OK,
         ], 201);
     }
 
@@ -65,7 +66,7 @@ class CustomerAuthController extends Controller
         if ($validator->fails()) {
              return response([
                         'message' => $validator->messages(),
-                        'status'=>'Failed'
+                        'status_code'=> Response::HTTP_UNAUTHORIZED,
                     ], 401);
         }  
     
@@ -75,25 +76,46 @@ class CustomerAuthController extends Controller
             return response([
                 'token'=>$token,
                 'message' => 'Login Success',
-                'status'=>'success'
+                'status_code'=> Response::HTTP_OK,
             ], 200);
         }
         return response([
             'message' => 'The Provided Credentials are incorrect',
-            'status'=>'failed'
+            'status_code'=> Response::HTTP_UNAUTHORIZED,
         ], 401);
     }
 
     public function logout(Request $request){
 
          $tokenId = \Str::before(request()->bearerToken(), '|');
-        // $customer = new Customer;
-         DB::table('personal_access_tokens')->where('id',  $tokenId)->delete();
-       // $customer->tokens()->where('id', $tokenId)->delete();
-        return response([
-            'message' =>  "logout",
-            'status'=>'success'
-        ], 200);
+       
+
+
+        if($tokenId!=null){
+            try {
+               // $customer = new Customer;
+                    DB::table('personal_access_tokens')->where('id',  $tokenId)->delete();
+                // $customer->tokens()->where('id', $tokenId)->delete(); 
+                    return response([
+                        'message' =>  "logout",
+                        'status_code'=> Response::HTTP_OK,
+                    ], 200);
+            } 
+            catch (\Exception $e) {
+                
+                return response()->json([
+                    'status_code'=> Response::HTTP_INTERNAL_SERVER_ERROR,
+                    'message'=> $e->getMessage()
+                ]);
+            }
+        }
+        else{
+            return response()->json([
+                'status_code'=> Response::HTTP_UNAUTHORIZED,
+                'message'=> 'Unauthorized'
+            ]);
+        }
+        
         
     }
 

@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 //admin login
 Route::get('admin/login', [AdminController::class, 'login'])->name("login");
+Route::get('test', function (){
+    return view('test');
+})->name("test");
 
 Route::middleware('auth')->prefix("admin")->group(function () {
     
