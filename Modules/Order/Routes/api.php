@@ -12,7 +12,8 @@ use Modules\Order\Http\Controllers\Api\V1\OrderApiController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Route::post('/v1/order', [OrderApiController::class, 'store']);
 
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function(){
-    Route::post('/order', [OrderApiController::class, 'create']);
+    Route::post('/order', [OrderApiController::class, 'store']);
 });

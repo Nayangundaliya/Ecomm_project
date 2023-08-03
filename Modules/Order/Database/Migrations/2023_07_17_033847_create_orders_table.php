@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("customer_id")->nullable();
+            $table->string("first_name");
+            $table->string("last_name");
             $table->string("dilevary_address_city");
             $table->string("dilevary_address_state");
+            $table->string("phone_no");
             $table->mediumText("dilivary_address");
             $table->string("pincode");
             $table->decimal("total_prise", 10, 2);
