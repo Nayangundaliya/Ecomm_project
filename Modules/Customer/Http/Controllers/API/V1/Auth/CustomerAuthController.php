@@ -50,6 +50,9 @@ class CustomerAuthController extends Controller
          $token = $customer->createToken($request->email)->plainTextToken;
         return response([
              'token'=>$token,
+            'first_name' => $customer->first_name,
+            'id' => $customer->id,
+            "email" => $customer->email,
             'message' => 'Registration Success',
             'status_code'=> Response::HTTP_OK,
         ], 201);
@@ -75,16 +78,24 @@ class CustomerAuthController extends Controller
             $token = $customer->createToken($request->email)->plainTextToken;
             return response([
                 'token'=>$token,
+                'first_name' => $customer->first_name,
+                'id' => $customer->id,
+                "email" => $customer->email,
                 'message' => 'Login Success',
                 'status_code'=> Response::HTTP_OK,
             ], 200);
+        }else{
+            return response([
+                'status' => 401,
+                'message' => 'The Provided Credentials are incorrect',
+            ], 401);
         }
         return response([
             'message' => 'The Provided Credentials are incorrect',
             'status_code'=> Response::HTTP_UNAUTHORIZED,
         ], 401);
     }
-
+//
     public function logout(Request $request){
 
          $tokenId = \Str::before(request()->bearerToken(), '|');

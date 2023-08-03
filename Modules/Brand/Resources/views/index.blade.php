@@ -81,7 +81,7 @@
 
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table container table-hover text-center">
+                        <table class="table table-hover text-center">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -97,10 +97,10 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->status == "1" ? "Hidden" : "Visible"}}</td>
                                     <td>
-                                        <div class="d-flex justify-content-around">
-                                            <a id="" class="btn btn-primary" href="{{ url('/admin/brand/edit') }}/{{ $data->id }}" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                            <a id="" class="btn btn-danger" href="{{ url('/admin/brand/destory') }}/{{ $data->id }}" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                        </div>
+                                        <button class="btn"><a href="{{ url('/admin/brand/edit') }}/{{ $data->id }}" class=""><i
+                                                    class="fa fa-thin fa-pen-to-square"></i></a></button>
+                                        <button class="btn"><a href="{{ url('/admin/brand/destory') }}/{{ $data->id }}" class="text-danger"><i
+                                                    class=" fa fa-duotone fa-trash"></i></a></button>
                                     </td>
                                 </tr>
                                 @endforeach

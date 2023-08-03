@@ -36,10 +36,11 @@
                             
                             <div>
                                 <a class="btn btn-primary" href="{{ url('/admin/products/create') }}" role="button"><i
-                                        class="fa fa-plus" aria-hidden="true">&nbsp&nbsp</i> Add Product </i></a>
+                                        class="fa fa-plus m-2" aria-hidden="true">&nbsp&nbsp</i> Add Product </i></a>
                                 &nbsp&nbsp
-                                {{-- <a class="btn btn-danger" href="{{ url('/') }}/style-trach" role="button"><i
-                                        class="fa fa-trash" aria-hidden="true"></i>&nbsp&nbsp Trash Record</a> --}}
+                                <a class="btn " href="{{ url('/admin/products/pdf') }}" role="button"><i class=" fa fa-2x m-2 fa-solid fa-file-pdf text-danger"></i></a>
+                                &nbsp&nbsp
+                                <a class="btn " href="{{ url('/admin/products/csv') }}" role="button"><i class="fa fa-2x m-2 fa-light fa-file-csv text-success"></i></a>
                             </div>
                         </div>
                         <div class="card-header">
@@ -141,12 +142,12 @@
                                 </tbody>
                             </table>
                             
-                            {{-- <div class="d-flex justify-content-center">
-                                {{ $product->links('pagination::bootstrap-4') }}
-                              </div> --}}
+                            <div class="d-flex justify-content-center mt-3">
+                                {{ $products->links('pagination::bootstrap-4') }}
+                              </div>
                             {{-- <div class="d-flex  justify-content-around mt-5">
-                                {{ $styles->links() }}
-                                {{ $styles->count() }} out of {{ $styles->total() }}
+                                {{ $products->links() }}
+                                {{ $products->count() }} out of {{ $products->total() }}
                             </div> --}}
     
                         </div>

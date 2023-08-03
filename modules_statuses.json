@@ -5,5 +5,6 @@
     "Category": true,
     "Brand": true,
     "Customer": true,
-    "Order": true
+    "Order": true,
+    "Contact": true
 }

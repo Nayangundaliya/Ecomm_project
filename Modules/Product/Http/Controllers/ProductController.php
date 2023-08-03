@@ -9,6 +9,9 @@ use Modules\Category\Entities\Category;
 use Modules\Product\Entities\Product;
 use Modules\Brand\Entities\Brand;
 use Modules\Product\Entities\ProductImage;
+use App\Exports\ProductExport;
+use PDF;
+use Excel;
 
 class ProductController extends Controller
 {
@@ -26,7 +29,7 @@ class ProductController extends Controller
          }
 
         // $categories = Category::all();
-        $products = Product::paginate(7);
+        $products = Product::paginate(8);
         return view('product::index', compact('products'));
     }
 
@@ -193,5 +196,16 @@ class ProductController extends Controller
         $delete->delete();
         session()->flash("massage", "Successfully Delete Category");
         return redirect("/admin/products");
+    }
+
+    public function exportpdf(){
+        $products = Product::get();
+        
+        $pdf = PDF::loadView('productpdf', compact('products'));
+        return $pdf->download('product.pdf');
+    }
+
+    public function exportcsv(){
+        return Excel::download(new ProductExport, 'productdata.xlsx');
     }
 }
