@@ -92,7 +92,7 @@ class CustomerAuthController extends Controller
         // return response([
         //     'message' => 'The Provided Credentials are incorrect',
         //     'status'=> 401
-        //
+        // 
         // ], 401);
     }
 //

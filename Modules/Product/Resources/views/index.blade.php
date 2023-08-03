@@ -71,7 +71,7 @@
                             <table class="table table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th>Srno</th>
+                                        <th>ID</th>
                                         <th>Product Name</th>
                                         <th>Category</th>
                                         <th>Brand Name</th>
@@ -93,7 +93,8 @@
                                     @endphp
                                     @foreach ($products as $product)
                                         <tr>
-                                            <td scope="row">{{ $no++ }}</td>
+                                            {{-- <td scope="row">{{ $no++ }}</td> --}}
+                                            <td>{{ $product->id }}</td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->category->name }}</td>
                                             <td>{{ $product->brand }}</td>
