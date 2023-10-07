@@ -109,8 +109,6 @@
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                                     <img src="{{$image = asset('/uploads/product/'.$product->image)}}" style="width: 30px " alt="">
                                                 </button>
-
-
                                                 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

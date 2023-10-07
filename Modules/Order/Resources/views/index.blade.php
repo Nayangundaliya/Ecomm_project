@@ -61,8 +61,12 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Customer Name</th>
-
-                                    <th>Status</th>
+                                    <th>Phone</th>
+                                    <th>Dilivary Address</th>
+                                    <th>Pincode</th>
+                                    <th>Product name</th>
+                                    <th>Quantity</th>
+                                    <th>Image</th>
                                     <th colspan="1" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -70,8 +74,27 @@
                                 @foreach ($order as $data)
                                 <tr>
                                     <td scope="row">{{ $data->id }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->status == "1" ? "Hidden" : "Visible"}}</td>
+                                    <td>{{ $data->first_name }} {{ $data->last_name }}</td>
+                                    <td>{{ $data->phone_no }}</td>
+                                    <td>{{ $data->dilivary_address }}</td>
+                                    <td>{{ $data->pincode }}</td>
+                                    <td>
+                                        @foreach ($data->products as $product)
+                                        <ul>
+                                            {{ $product->name}}
+                                        </ul>
+                                        
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $data->total_quantaty }}</td>
+                                    <td>
+                                        @foreach ($data->products as $product)
+                                        <ul>
+                                            <img src="{{asset('/uploads/product/'.$product->image)}}" style="width: 40px " alt="">
+                                        </ul> 
+                                        @endforeach
+                                        
+                                    </td>
                                 <td>
                                     <button class="btn"><a href="{{ url('/admin/order/edit') }}/{{ $data->id }}" class=""><i class="fa fa-thin fa-pen-to-square"></i></a></button>
                                     <button class="btn"><a href="{{ url('/admin/order/destory') }}/{{ $data->id }}" class="text-danger"><i class=" fa fa-duotone fa-trash"></i></a></button>

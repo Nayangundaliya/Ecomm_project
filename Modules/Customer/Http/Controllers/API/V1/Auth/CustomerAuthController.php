@@ -19,6 +19,7 @@ class CustomerAuthController extends Controller
             'first_name'=>'required|string|min:3',
             "last_name"=>'required|string|min:2',
             "country"=>'required',
+            "city"=>'required',
             "phone_no"=>'required|numeric',
             'email'=>'required|email',
             'password'=>'required|confirmed',
@@ -28,13 +29,13 @@ class CustomerAuthController extends Controller
              return response([
                         'message' => $validator->messages(),
                         'status_code'=> Response::HTTP_UNAUTHORIZED,
-                    ], 401);
+                    ]);
         }  
 
         if(Customer::where('email', $request->email)->first()){
             return response([
                 'message' => 'Email already exists',
-                'status_code'=> Response::HTTP_OK,
+                'status_code'=> Response::HTTP_UNAUTHORIZED,
             ], 200);
         }
 
@@ -70,7 +71,7 @@ class CustomerAuthController extends Controller
              return response([
                         'message' => $validator->messages(),
                         'status_code'=> Response::HTTP_UNAUTHORIZED,
-                    ], 401);
+                    ]);
         }  
     
         $customer = Customer::where('email', $request->email)->first();
@@ -88,7 +89,7 @@ class CustomerAuthController extends Controller
             return response([
             'message' => 'The Provided Credentials are incorrect',
             'status_code'=> Response::HTTP_UNAUTHORIZED,
-        ], 401);
+        ]);
         }
         
     }
@@ -105,7 +106,7 @@ class CustomerAuthController extends Controller
                     DB::table('personal_access_tokens')->where('id',  $tokenId)->delete();
                 // $customer->tokens()->where('id', $tokenId)->delete(); 
                     return response([
-                        'message' =>  "logout",
+                        'message' =>  "Logout Success",
                         'status_code'=> Response::HTTP_OK,
                     ], 200);
             } 

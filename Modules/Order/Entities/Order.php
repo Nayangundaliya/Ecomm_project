@@ -12,10 +12,9 @@ class Order extends Model
 
     protected $fillable = [
         "customer_id ",
+        "product_id ",
         "first_name",
         "last_name",
-        "dilevary_address_city",
-        "dilevary_address_state",
         "phone_no",
         "dilivary_address",
         "pincode",
@@ -36,8 +35,9 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-   public function product()
+    protected $with = ['products'];
+    public function products()
     {
-        return $this->belongsToMany(Product::class, "order_products")->withTimestamps();
+        return $this->hasMany(Product::class, 'id', 'product_id');
     }
 }

@@ -19,7 +19,7 @@ class OrderController extends Controller
        $order =Order::where("first_name" , 'LIKE', '%'.$request->search.'%')->get();
         return view('order::index',["order" => $order]);
         }
-        $order =Order::all();
+        $order = Order::paginate(8);
 
         return view('order::index',["order" => $order]);
     }

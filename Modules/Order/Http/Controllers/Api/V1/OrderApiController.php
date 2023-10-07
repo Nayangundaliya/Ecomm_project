@@ -39,8 +39,6 @@ class OrderApiController extends Controller
             $validator = Validator::make($request->all(), [
             'first_name'=>'required|string|min:3',
             "last_name"=>'required|string|min:2',
-            "dilevary_address_city"=>'required',
-            "dilevary_address_state"=>"required",
             "phone_no"=>'required|numeric',
             "dilivary_address"=>"required",
             "pincode"=>"required|numeric",
@@ -54,28 +52,27 @@ class OrderApiController extends Controller
               } 
       
            $order = new Order ;
-          $order->customer_id = "1";
+          $order->customer_id = $request->customer_id;
+          $order->product_id = $request->product_id;
            $order->first_name = $request->first_name;
            $order->last_name = $request->last_name;
-           $order->dilevary_address_city = $request->dilevary_address_city;
-           $order->dilevary_address_state = $request->dilevary_address_state;
            $order->phone_no = $request->phone_no;
            $order->dilivary_address = $request->dilivary_address;
            $order->pincode = $request->pincode;
-           $order->total_prise = "2000";
-           $order->total_quantaty = "5";
+           $order->total_prise = $request->total_prise;
+           $order->total_quantaty = $request->total_quantaty;
            $order->payment_mode = "COD";
-
+           $order->payment_status = $order->payment_mode == "COD" ? '1' : '0';
            $order->save();
 
-           $orderProduct=[
-              $request->product_id => ["product_quantaty" => $request->product_quantaty]
-           ];
+        //    $orderProduct=[
+        //       $request->product_id => ["product_quantaty" => $request->product_quantaty]
+        //    ];
 
         
-           $order->product()->attach([
-        1 => ['product_quantaty' => 2], // Product ID 1 with a quantity of 2
-    ]);
+        //    $order->product()->attach([
+        //         1 => ['product_quantaty' => 2], // Product ID 1 with a quantity of 2
+        //     ]);
 
           return response([
                 'message' => 'Order Successfully Placed',
